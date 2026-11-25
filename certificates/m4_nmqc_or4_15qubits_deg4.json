@@ -1,0 +1,142 @@
+{
+  "schema": "TORUS-ACC0-CERT-1.0",
+  "mode": "periodic_fourier_nmqc_equiv_cert",
+  "cert_id": "m4_nmqc_or4_15qubits_deg4",
+  "num_vars_n": 4,
+  "truth_table_01": [
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "periodic_const_alpha": "15/32",
+  "periodic_parities": [
+    {
+      "vars": [
+        0
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        1
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        0,
+        1
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        2
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        0,
+        2
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        1,
+        2
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        0,
+        1,
+        2
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        3
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        0,
+        3
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        1,
+        3
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        0,
+        1,
+        3
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        2,
+        3
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        0,
+        2,
+        3
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        1,
+        2,
+        3
+      ],
+      "weight": "-1/32"
+    },
+    {
+      "vars": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "weight": "-1/32"
+    }
+  ],
+  "conversion_k": 5,
+  "target_nmqc_err_eps": "1/16",
+  "target_torus_extra_eta": "1/16",
+  "claimed_nmqc_qubits": 15,
+  "claimed_periodic_max_torus_dist": "0",
+  "claimed_nmqc_err_ub": "0",
+  "claimed_converted_torus_degree": 4,
+  "claimed_converted_max_torus_error": "0"
+}

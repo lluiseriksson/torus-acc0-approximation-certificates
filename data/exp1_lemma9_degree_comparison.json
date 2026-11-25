@@ -1,0 +1,55 @@
+{
+  "p": 2,
+  "e": 2,
+  "q": 4,
+  "rows": [
+    {
+      "k": 1,
+      "app_b_exact_deg": 3,
+      "lemma9_simple_ub": 3,
+      "beigel_tarui_ub": 3
+    },
+    {
+      "k": 2,
+      "app_b_exact_deg": 5,
+      "lemma9_simple_ub": 6,
+      "beigel_tarui_ub": 9
+    },
+    {
+      "k": 3,
+      "app_b_exact_deg": 7,
+      "lemma9_simple_ub": 9,
+      "beigel_tarui_ub": 15
+    },
+    {
+      "k": 4,
+      "app_b_exact_deg": 9,
+      "lemma9_simple_ub": 12,
+      "beigel_tarui_ub": 21
+    },
+    {
+      "k": 5,
+      "app_b_exact_deg": 11,
+      "lemma9_simple_ub": 15,
+      "beigel_tarui_ub": 27
+    },
+    {
+      "k": 6,
+      "app_b_exact_deg": 13,
+      "lemma9_simple_ub": 18,
+      "beigel_tarui_ub": 33
+    },
+    {
+      "k": 7,
+      "app_b_exact_deg": 15,
+      "lemma9_simple_ub": 21,
+      "beigel_tarui_ub": 39
+    },
+    {
+      "k": 8,
+      "app_b_exact_deg": 17,
+      "lemma9_simple_ub": 24,
+      "beigel_tarui_ub": 45
+    }
+  ]
+}

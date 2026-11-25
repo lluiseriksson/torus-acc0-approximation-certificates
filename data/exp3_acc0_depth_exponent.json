@@ -1,0 +1,46 @@
+{
+  "m": 6,
+  "mu": 2,
+  "rows": [
+    {
+      "depth_d": 1,
+      "osaki_mori_exp": 1,
+      "bhlr19_exp": 1
+    },
+    {
+      "depth_d": 2,
+      "osaki_mori_exp": 2,
+      "bhlr19_exp": 4
+    },
+    {
+      "depth_d": 3,
+      "osaki_mori_exp": 3,
+      "bhlr19_exp": 9
+    },
+    {
+      "depth_d": 4,
+      "osaki_mori_exp": 4,
+      "bhlr19_exp": 16
+    },
+    {
+      "depth_d": 5,
+      "osaki_mori_exp": 5,
+      "bhlr19_exp": 25
+    },
+    {
+      "depth_d": 6,
+      "osaki_mori_exp": 6,
+      "bhlr19_exp": 36
+    },
+    {
+      "depth_d": 7,
+      "osaki_mori_exp": 7,
+      "bhlr19_exp": 49
+    },
+    {
+      "depth_d": 8,
+      "osaki_mori_exp": 8,
+      "bhlr19_exp": 64
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "rows": [
+    {
+      "log2_n": 4,
+      "osaki_mori_linear": 13,
+      "prior_quadratic": 169,
+      "speedup_factor": 13
+    },
+    {
+      "log2_n": 6,
+      "osaki_mori_linear": 17,
+      "prior_quadratic": 289,
+      "speedup_factor": 17
+    },
+    {
+      "log2_n": 8,
+      "osaki_mori_linear": 21,
+      "prior_quadratic": 441,
+      "speedup_factor": 21
+    },
+    {
+      "log2_n": 10,
+      "osaki_mori_linear": 25,
+      "prior_quadratic": 625,
+      "speedup_factor": 25
+    },
+    {
+      "log2_n": 12,
+      "osaki_mori_linear": 29,
+      "prior_quadratic": 841,
+      "speedup_factor": 29
+    },
+    {
+      "log2_n": 16,
+      "osaki_mori_linear": 37,
+      "prior_quadratic": 1369,
+      "speedup_factor": 37
+    },
+    {
+      "log2_n": 20,
+      "osaki_mori_linear": 45,
+      "prior_quadratic": 2025,
+      "speedup_factor": 45
+    }
+  ]
+}

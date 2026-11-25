@@ -1,0 +1,129 @@
+{
+  "schema": "TORUS-ACC0-CERT-1.0",
+  "mode": "fourier_rounding_torus_approx_cert",
+  "cert_id": "m2_fourier_and5_deg3_err1_5",
+  "num_vars_n": 5,
+  "function_name": "AND_5",
+  "truth_table_01": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+  ],
+  "rounding_k": 4,
+  "target_eps": "1/5",
+  "torus_poly_terms": [
+    {
+      "vars": [
+        0,
+        1,
+        2
+      ],
+      "coeff": "1/20"
+    },
+    {
+      "vars": [
+        0,
+        1,
+        3
+      ],
+      "coeff": "1/20"
+    },
+    {
+      "vars": [
+        0,
+        1,
+        4
+      ],
+      "coeff": "1/20"
+    },
+    {
+      "vars": [
+        0,
+        2,
+        3
+      ],
+      "coeff": "1/20"
+    },
+    {
+      "vars": [
+        0,
+        2,
+        4
+      ],
+      "coeff": "1/20"
+    },
+    {
+      "vars": [
+        0,
+        3,
+        4
+      ],
+      "coeff": "1/20"
+    },
+    {
+      "vars": [
+        1,
+        2,
+        3
+      ],
+      "coeff": "1/20"
+    },
+    {
+      "vars": [
+        1,
+        2,
+        4
+      ],
+      "coeff": "1/20"
+    },
+    {
+      "vars": [
+        1,
+        3,
+        4
+      ],
+      "coeff": "1/20"
+    },
+    {
+      "vars": [
+        2,
+        3,
+        4
+      ],
+      "coeff": "1/20"
+    }
+  ],
+  "claimed_fourier_l1_norm": "1",
+  "claimed_fourier_sparsity": 32,
+  "claimed_poly_degree": 3,
+  "claimed_max_torus_error": "1/5"
+}

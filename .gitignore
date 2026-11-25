@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+lean/.lake/
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/pdflatex*.log

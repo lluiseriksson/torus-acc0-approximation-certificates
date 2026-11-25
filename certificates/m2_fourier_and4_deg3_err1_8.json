@@ -1,0 +1,65 @@
+{
+  "schema": "TORUS-ACC0-CERT-1.0",
+  "mode": "fourier_rounding_torus_approx_cert",
+  "cert_id": "m2_fourier_and4_deg3_err1_8",
+  "num_vars_n": 4,
+  "function_name": "AND_4",
+  "truth_table_01": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+  ],
+  "rounding_k": 4,
+  "target_eps": "1/8",
+  "torus_poly_terms": [
+    {
+      "vars": [
+        0,
+        1,
+        2
+      ],
+      "coeff": "1/8"
+    },
+    {
+      "vars": [
+        0,
+        1,
+        3
+      ],
+      "coeff": "1/8"
+    },
+    {
+      "vars": [
+        0,
+        2,
+        3
+      ],
+      "coeff": "1/8"
+    },
+    {
+      "vars": [
+        1,
+        2,
+        3
+      ],
+      "coeff": "1/8"
+    }
+  ],
+  "claimed_fourier_l1_norm": "1",
+  "claimed_fourier_sparsity": 16,
+  "claimed_poly_degree": 3,
+  "claimed_max_torus_error": "1/8"
+}

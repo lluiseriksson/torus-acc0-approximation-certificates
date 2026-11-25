@@ -1,0 +1,40 @@
+{
+  "schema": "TORUS-ACC0-CERT-1.0",
+  "mode": "composite_modulus_crt_lemma11_cert",
+  "cert_id": "m3_crt_mod10_n4_alpha_3_7",
+  "num_vars_n": 4,
+  "factor_q1": 2,
+  "factor_q2": 5,
+  "alpha_weight": "3/7",
+  "affine_G_coeffs": [
+    2,
+    3,
+    5,
+    1
+  ],
+  "affine_G_offset": 1,
+  "target_eps": "1/8",
+  "torus_poly_terms": [
+    {
+      "vars": [
+        1,
+        2,
+        3
+      ],
+      "coeff": "7/16"
+    },
+    {
+      "vars": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "coeff": "-7/16"
+    }
+  ],
+  "claimed_modulus_m": 10,
+  "claimed_crt_verified_inputs": 16,
+  "claimed_poly_degree": 4,
+  "claimed_max_torus_error": "1/112"
+}

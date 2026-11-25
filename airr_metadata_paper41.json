@@ -1,0 +1,18 @@
+{
+  "title": "Certified Verification of Low-Degree Torus Approximations for AND and ACC0 Circuits",
+  "authors": ["Lluis Eriksson"],
+  "abstract": "Osaki and Mori (arXiv:2611.32163, Nov 2026) resolved the optimal torus approximation degree of AND_n/2 as Theta(log(n/eps)) and improved ACC^0 torus approximation degrees from quadratic depth d^2 to linear depth (mu-1)d via prime-power finite-difference polynomials (Lemma 9), Fourier rounding (Theorem 14), Chinese Remainder Theorem composition (Lemma 11), and periodic Fourier equivalence with NMQC_oplus. We present a standalone machine-checked verification framework comprising 18 zero-sorry Lean 4.35.0 theorems (zero Classical.choice, zero warnings) and a zero-floating-point exact-Q certificate verifier TORUS-ACC0-CERT-1.0 across four modes. Sixteen canonical certificates audit prime-power finite differences, sub-degree AND_n/2 witnesses, composite CRT approximations, and NMQC_oplus conversions in 0.083-3.464 ms while rejecting 60/60 live adversarial forgery attacks.",
+  "category": "cs.CC",
+  "license": "CC-BY-4.0",
+  "code_license": "MIT",
+  "repository_url": "https://github.com/lluiseriksson/torus-acc0-approximation-certificates",
+  "release_tag": "v1.0.0",
+  "operator_conflict": true,
+  "ai_assistance_disclosure": "Prepared by sole author Lluis Eriksson with AI coding, formalization, and drafting assistance from Google Antigravity; all Lean 4.35.0 proofs, exact-Q certificates, and adversarial tests were independently compiled and machine-verified locally.",
+  "target_reference": {
+    "arxiv_id": "2611.32163",
+    "authors": ["Shuhei Osaki", "Ryuhei Mori"],
+    "title": "Low-Degree Torus Approximations of the AND Function and ACC^0 Circuits",
+    "date": "2026-11-24"
+  }
+}

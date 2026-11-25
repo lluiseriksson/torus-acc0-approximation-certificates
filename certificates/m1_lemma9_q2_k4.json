@@ -1,0 +1,22 @@
+{
+  "schema": "TORUS-ACC0-CERT-1.0",
+  "mode": "prime_power_finite_diff_lemma9_cert",
+  "cert_id": "m1_lemma9_q2_k4",
+  "prime_p": 2,
+  "exponent_e": 1,
+  "precision_k": 4,
+  "claimed_modulus_q": 2,
+  "claimed_coeffs_mod_pk": [
+    1,
+    15,
+    2,
+    12,
+    8
+  ],
+  "claimed_exact_degree": 4,
+  "claimed_simple_degree_ub": 4,
+  "claimed_verified_z_range": [
+    -4,
+    8
+  ]
+}

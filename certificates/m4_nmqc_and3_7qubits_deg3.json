@@ -1,0 +1,74 @@
+{
+  "schema": "TORUS-ACC0-CERT-1.0",
+  "mode": "periodic_fourier_nmqc_equiv_cert",
+  "cert_id": "m4_nmqc_and3_7qubits_deg3",
+  "num_vars_n": 3,
+  "truth_table_01": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+  ],
+  "periodic_const_alpha": "1/16",
+  "periodic_parities": [
+    {
+      "vars": [
+        0
+      ],
+      "weight": "-1/16"
+    },
+    {
+      "vars": [
+        1
+      ],
+      "weight": "-1/16"
+    },
+    {
+      "vars": [
+        0,
+        1
+      ],
+      "weight": "1/16"
+    },
+    {
+      "vars": [
+        2
+      ],
+      "weight": "-1/16"
+    },
+    {
+      "vars": [
+        0,
+        2
+      ],
+      "weight": "1/16"
+    },
+    {
+      "vars": [
+        1,
+        2
+      ],
+      "weight": "1/16"
+    },
+    {
+      "vars": [
+        0,
+        1,
+        2
+      ],
+      "weight": "-1/16"
+    }
+  ],
+  "conversion_k": 4,
+  "target_nmqc_err_eps": "1/16",
+  "target_torus_extra_eta": "1/16",
+  "claimed_nmqc_qubits": 7,
+  "claimed_periodic_max_torus_dist": "0",
+  "claimed_nmqc_err_ub": "0",
+  "claimed_converted_torus_degree": 3,
+  "claimed_converted_max_torus_error": "0"
+}

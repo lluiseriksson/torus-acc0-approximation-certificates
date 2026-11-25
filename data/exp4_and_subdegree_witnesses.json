@@ -1,0 +1,25 @@
+{
+  "rows": [
+    {
+      "n": 4,
+      "poly_deg": 3,
+      "exact_max_error": "1/8",
+      "exact_max_error_dec": 0.125,
+      "quarter_threshold": 0.25
+    },
+    {
+      "n": 5,
+      "poly_deg": 3,
+      "exact_max_error": "1/5",
+      "exact_max_error_dec": 0.2,
+      "quarter_threshold": 0.25
+    },
+    {
+      "n": 6,
+      "poly_deg": 4,
+      "exact_max_error": "1/6",
+      "exact_max_error_dec": 0.166667,
+      "quarter_threshold": 0.25
+    }
+  ]
+}

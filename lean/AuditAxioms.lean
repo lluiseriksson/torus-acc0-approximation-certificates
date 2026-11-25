@@ -1,0 +1,20 @@
+import TorusACC0
+
+#print axioms TorusACC0.torus_triangle_ineq_int
+#print axioms TorusACC0.boolean_constant_quarter_error
+#print axioms TorusACC0.parity_to_zero_test_identity
+#print axioms TorusACC0.lemma9_exact_degree_formula
+#print axioms TorusACC0.lemma9_exact_degree_le_simple
+#print axioms TorusACC0.beigel_tarui_degree_comparison
+#print axioms TorusACC0.lemma9_binary_k3_exact_mod8
+#print axioms TorusACC0.lemma10_rounding_error_half_pk
+#print axioms TorusACC0.lemma11_crt_mod6_exact
+#print axioms TorusACC0.lemma11_boolean_factor_preserves_error
+#print axioms TorusACC0.lemma11_composite_degree_recurrence
+#print axioms TorusACC0.fourier_l1_norm_and_n_exact
+#print axioms TorusACC0.theorem14_sparsity_rounding_sum
+#print axioms TorusACC0.theorem1_and_logarithmic_beats_quadratic
+#print axioms TorusACC0.theorem2_linear_depth_beats_quadratic_depth
+#print axioms TorusACC0.prop26_periodic_fourier_triangle_bound
+#print axioms TorusACC0.fact19_jordan_sin_sandwich
+#print axioms TorusACC0.mori_exact_pfs_bounds

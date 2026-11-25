@@ -1,0 +1,118 @@
+{
+  "schema": "TORUS-ACC0-CERT-1.0",
+  "mode": "composite_modulus_crt_lemma11_cert",
+  "cert_id": "m3_crt_mod6_n4_alpha_1_5",
+  "num_vars_n": 4,
+  "factor_q1": 2,
+  "factor_q2": 3,
+  "alpha_weight": "1/5",
+  "affine_G_coeffs": [
+    1,
+    2,
+    3,
+    1
+  ],
+  "affine_G_offset": 0,
+  "target_eps": "1/8",
+  "torus_poly_terms": [
+    {
+      "vars": [],
+      "coeff": "3/16"
+    },
+    {
+      "vars": [
+        0
+      ],
+      "coeff": "-3/16"
+    },
+    {
+      "vars": [
+        1
+      ],
+      "coeff": "-3/16"
+    },
+    {
+      "vars": [
+        2
+      ],
+      "coeff": "-3/16"
+    },
+    {
+      "vars": [
+        3
+      ],
+      "coeff": "-3/16"
+    },
+    {
+      "vars": [
+        0,
+        1
+      ],
+      "coeff": "3/16"
+    },
+    {
+      "vars": [
+        0,
+        2
+      ],
+      "coeff": "3/16"
+    },
+    {
+      "vars": [
+        0,
+        3
+      ],
+      "coeff": "3/16"
+    },
+    {
+      "vars": [
+        1,
+        2
+      ],
+      "coeff": "3/16"
+    },
+    {
+      "vars": [
+        1,
+        3
+      ],
+      "coeff": "3/16"
+    },
+    {
+      "vars": [
+        2,
+        3
+      ],
+      "coeff": "3/16"
+    },
+    {
+      "vars": [
+        0,
+        1,
+        3
+      ],
+      "coeff": "-3/16"
+    },
+    {
+      "vars": [
+        0,
+        2,
+        3
+      ],
+      "coeff": "-3/16"
+    },
+    {
+      "vars": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "coeff": "-3/16"
+    }
+  ],
+  "claimed_modulus_m": 6,
+  "claimed_crt_verified_inputs": 16,
+  "claimed_poly_degree": 4,
+  "claimed_max_torus_error": "1/80"
+}
