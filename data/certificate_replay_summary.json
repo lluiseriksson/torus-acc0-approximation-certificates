@@ -4,7 +4,7 @@
     {
       "cert_id": "m1_lemma9_q2_k4",
       "mode": "prime_power_finite_diff_lemma9_cert",
-      "verify_ms": 0.083,
+      "verify_ms": 1.183,
       "summary": {
         "verified": true,
         "mode": "prime_power_finite_diff_lemma9_cert",
@@ -17,7 +17,7 @@
     {
       "cert_id": "m1_lemma9_q3_k3",
       "mode": "prime_power_finite_diff_lemma9_cert",
-      "verify_ms": 0.13,
+      "verify_ms": 1.754,
       "summary": {
         "verified": true,
         "mode": "prime_power_finite_diff_lemma9_cert",
@@ -30,7 +30,7 @@
     {
       "cert_id": "m1_lemma9_q4_k3",
       "mode": "prime_power_finite_diff_lemma9_cert",
-      "verify_ms": 0.181,
+      "verify_ms": 0.831,
       "summary": {
         "verified": true,
         "mode": "prime_power_finite_diff_lemma9_cert",
@@ -43,7 +43,7 @@
     {
       "cert_id": "m1_lemma9_q5_k2",
       "mode": "prime_power_finite_diff_lemma9_cert",
-      "verify_ms": 0.234,
+      "verify_ms": 0.967,
       "summary": {
         "verified": true,
         "mode": "prime_power_finite_diff_lemma9_cert",
@@ -56,7 +56,7 @@
     {
       "cert_id": "m2_fourier_and4_deg3_err1_8",
       "mode": "fourier_rounding_torus_approx_cert",
-      "verify_ms": 0.416,
+      "verify_ms": 0.351,
       "summary": {
         "verified": true,
         "mode": "fourier_rounding_torus_approx_cert",
@@ -69,7 +69,7 @@
     {
       "cert_id": "m2_fourier_and5_deg3_err1_5",
       "mode": "fourier_rounding_torus_approx_cert",
-      "verify_ms": 1.058,
+      "verify_ms": 1.097,
       "summary": {
         "verified": true,
         "mode": "fourier_rounding_torus_approx_cert",
@@ -82,7 +82,7 @@
     {
       "cert_id": "m2_fourier_and6_deg4_err1_6",
       "mode": "fourier_rounding_torus_approx_cert",
-      "verify_ms": 3.464,
+      "verify_ms": 3.911,
       "summary": {
         "verified": true,
         "mode": "fourier_rounding_torus_approx_cert",
@@ -95,7 +95,7 @@
     {
       "cert_id": "m2_fourier_maj3_compiled_exact",
       "mode": "fourier_rounding_torus_approx_cert",
-      "verify_ms": 0.179,
+      "verify_ms": 0.145,
       "summary": {
         "verified": true,
         "mode": "fourier_rounding_torus_approx_cert",
@@ -108,7 +108,7 @@
     {
       "cert_id": "m3_crt_mod6_n4_alpha_1_5",
       "mode": "composite_modulus_crt_lemma11_cert",
-      "verify_ms": 0.297,
+      "verify_ms": 0.321,
       "summary": {
         "verified": true,
         "mode": "composite_modulus_crt_lemma11_cert",
@@ -120,7 +120,7 @@
     {
       "cert_id": "m3_crt_mod10_n4_alpha_3_7",
       "mode": "composite_modulus_crt_lemma11_cert",
-      "verify_ms": 0.128,
+      "verify_ms": 0.129,
       "summary": {
         "verified": true,
         "mode": "composite_modulus_crt_lemma11_cert",
@@ -132,7 +132,7 @@
     {
       "cert_id": "m3_crt_mod12_n4_primepower",
       "mode": "composite_modulus_crt_lemma11_cert",
-      "verify_ms": 0.294,
+      "verify_ms": 0.305,
       "summary": {
         "verified": true,
         "mode": "composite_modulus_crt_lemma11_cert",
@@ -144,7 +144,7 @@
     {
       "cert_id": "m3_crt_mod15_n5_alpha_2_9",
       "mode": "composite_modulus_crt_lemma11_cert",
-      "verify_ms": 0.969,
+      "verify_ms": 0.872,
       "summary": {
         "verified": true,
         "mode": "composite_modulus_crt_lemma11_cert",
@@ -156,7 +156,7 @@
     {
       "cert_id": "m4_nmqc_maj3_4qubits_deg2",
       "mode": "periodic_fourier_nmqc_equiv_cert",
-      "verify_ms": 0.2,
+      "verify_ms": 0.426,
       "summary": {
         "verified": true,
         "mode": "periodic_fourier_nmqc_equiv_cert",
@@ -169,7 +169,7 @@
     {
       "cert_id": "m4_nmqc_and3_7qubits_deg3",
       "mode": "periodic_fourier_nmqc_equiv_cert",
-      "verify_ms": 0.25,
+      "verify_ms": 0.405,
       "summary": {
         "verified": true,
         "mode": "periodic_fourier_nmqc_equiv_cert",
@@ -182,7 +182,7 @@
     {
       "cert_id": "m4_nmqc_maj3_approx_perturbed",
       "mode": "periodic_fourier_nmqc_equiv_cert",
-      "verify_ms": 0.212,
+      "verify_ms": 0.21,
       "summary": {
         "verified": true,
         "mode": "periodic_fourier_nmqc_equiv_cert",
@@ -195,7 +195,7 @@
     {
       "cert_id": "m4_nmqc_or4_15qubits_deg4",
       "mode": "periodic_fourier_nmqc_equiv_cert",
-      "verify_ms": 0.734,
+      "verify_ms": 0.743,
       "summary": {
         "verified": true,
         "mode": "periodic_fourier_nmqc_equiv_cert",

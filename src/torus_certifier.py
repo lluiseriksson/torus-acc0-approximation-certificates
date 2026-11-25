@@ -138,6 +138,23 @@ def _bits_of(x: int, n: int) -> List[int]:
     return [(x >> i) & 1 for i in range(n)]
 
 
+def _vp_factorial(d: int, p: int) -> int:
+    """Exact Legendre p-adic valuation v_p(d!) via pure integer division."""
+    tot = 0
+    m = d // p
+    while m > 0:
+        tot += m
+        m //= p
+    return tot
+
+
+def lemma9_exact_period(p: int, e: int, k: int, exact_deg: int) -> int:
+    """Exact universal period P = p^max(e, k + v_p(d!)) guaranteeing Q_{q,k}(z+P) == Q_{q,k}(z) (mod 1)
+    and delta_q(z+P) == delta_q(z) for all z in Z."""
+    exp_p = max(e, k + _vp_factorial(exact_deg, p))
+    return p ** exp_p
+
+
 # =============================================================================
 # Mode 1: Lemma 9 Prime-Power Finite-Difference Torus Polynomial Q_{q,k}(z)
 # =============================================================================
@@ -174,8 +191,10 @@ def _verify_mode1_prime_power(cert: Dict[str, Any]) -> Dict[str, Any]:
     if exact_deg != app_b_deg or exact_deg > simple_ub:
         raise TorusCertificateError(f"Lemma 9 degree mismatch: got {exact_deg}, App. B {app_b_deg}, ub {simple_ub}")
 
-    # Independently verify Q_{q,k}(z) - delta_q(z) / p^k in Z over [-2q, 4q] (both negative & positive z!)
-    z_lo, z_hi = -2 * q, 4 * q
+    # Independently verify Q_{q,k}(z) - delta_q(z) / p^k in Z over ONE COMPLETE EXACT PERIOD [0, P - 1]
+    # where P = p^max(e, k + v_p(d!)), which mathematically proves Eq. (1) for ALL z in Z!
+    period = lemma9_exact_period(p, e, k, exact_deg)
+    z_lo, z_hi = 0, period - 1
     mod = p ** k
     for z in range(z_lo, z_hi + 1):
         val = eval_lemma9_poly_q(exact_coeffs, p, k, z)

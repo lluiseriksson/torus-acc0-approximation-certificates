@@ -72,7 +72,7 @@ def main() -> None:
     print("[1/4] Auditing Lean 4.35.0 kernel...")
     subprocess.run(["lake", "build"], cwd=ROOT / "lean", check=True)
     audit = subprocess.run(
-        ["lake", "env", "lean", "AuditAxioms.lean"],
+        ["lake", "env", "lean", "-j", "1", "AuditAxioms.lean"],
         cwd=ROOT / "lean",
         check=True,
         capture_output=True,
@@ -98,7 +98,7 @@ def main() -> None:
     print("      PASS: 16/16 certificates verified with zero floating-point arithmetic.")
 
     print("[3/4] Running pytest + 60 live adversarial forgery attacks...")
-    subprocess.run([sys.executable, "-m", "pytest", "-q"], cwd=ROOT, check=True)
+    subprocess.run([sys.executable, "-m", "pytest", "-p", "no:cacheprovider", "-q"], cwd=ROOT, check=True)
     print("      PASS: pytest + 60/60 adversarial attacks rejected.")
 
     print("[4/4] SHA-256 manifest verification...")

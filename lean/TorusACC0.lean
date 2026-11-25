@@ -76,10 +76,18 @@ theorem lemma9_exact_degree_le_simple (p P k : Nat) (hp : 2 ≤ p) (hP : 1 ≤ P
   omega
 
 /-- Theorem 6 (Page 9 Remark — Beigel-Tarui vs. Lemma 9 Degree Bound):
-    For every `q ≥ 2` and `k ≥ 1`, Beigel-Tarui modulus amplification degree
-    `(q - 1) * (2 * k - 1)` is strictly less than `2 * (q - 1) * k`. -/
+    For every `q ≥ 2` and `k ≥ 1`, Lemma 9's upper bound `(q - 1) * k` is at most
+    Beigel-Tarui's `(q - 1) * (2 * k - 1)` (strictly smaller for `k ≥ 2`), which is
+    strictly less than `2 * (q - 1) * k`. -/
 theorem beigel_tarui_degree_comparison (q k : Nat) (hq : 2 ≤ q) (hk : 1 ≤ k) :
+    (q - 1) * k ≤ (q - 1) * (2 * k - 1) ∧
+    (2 ≤ k → (q - 1) * k < (q - 1) * (2 * k - 1)) ∧
     (q - 1) * (2 * k - 1) < 2 * (q - 1) * k := by
+  have hle : (q - 1) * k ≤ (q - 1) * (2 * k - 1) :=
+    Nat.mul_le_mul_left (q - 1) (by omega)
+  have hlt_k2 : 2 ≤ k → (q - 1) * k < (q - 1) * (2 * k - 1) := by
+    intro hk2
+    exact Nat.mul_lt_mul_of_pos_left (by omega) (by omega)
   have h1 : (q - 1) * (2 * k - 1) + (q - 1) = (q - 1) * (2 * k) := by
     have : 2 * k - 1 + 1 = 2 * k := by omega
     calc (q - 1) * (2 * k - 1) + (q - 1)
@@ -88,7 +96,7 @@ theorem beigel_tarui_degree_comparison (q k : Nat) (hq : 2 ≤ q) (hk : 1 ≤ k)
       _ = (q - 1) * (2 * k) := by rw [this]
   have h2 : (q - 1) * (2 * k) = 2 * (q - 1) * k := by
     rw [← Nat.mul_assoc, Nat.mul_comm (q - 1) 2]
-  omega
+  exact ⟨hle, hlt_k2, by omega⟩
 
 /-- Exact binomial coefficient `Nat.choose` helper (pure structural recursion). -/
 def binom : Nat → Nat → Nat
@@ -96,26 +104,119 @@ def binom : Nat → Nat → Nat
   | 0, _ + 1 => 0
   | n + 1, k + 1 => binom n k + binom n (k + 1)
 
+private theorem binom_one (z : Nat) : binom z 1 = z := by
+  induction z with
+  | zero => rfl
+  | succ n ih =>
+      simp only [binom, ih]
+      omega
+
+private theorem two_mul_binom_two (z : Nat) : 2 * binom z 2 = z * (z - 1) := by
+  induction z with
+  | zero => rfl
+  | succ n ih =>
+      simp only [binom, binom_one]
+      have h1 : 2 * (n + binom n 2) = 2 * n + 2 * binom n 2 := Nat.mul_add 2 n (binom n 2)
+      rw [h1, ih]
+      cases n with
+      | zero => rfl
+      | succ m =>
+          have hsub : m + 1 - 1 = m := by omega
+          have hsub2 : m + 1 + 1 - 1 = m + 1 := by omega
+          rw [hsub, hsub2]
+          calc 2 * (m + 1) + (m + 1) * m
+              = (m + 1) * 2 + (m + 1) * m := by rw [Nat.mul_comm 2 (m + 1)]
+            _ = (m + 1) * (2 + m) := by rw [← Nat.mul_add]
+            _ = (m + 2) * (m + 1) := by rw [Nat.mul_comm, Nat.add_comm 2 m]
+
 /-- Truncated binary Lemma 9 numerator `∑_{j=0}^{k-1} (-2)^j * binom z j` for `q = 2`!
     At `j = 0..k-1`, `(-2)^j / 2^k` matches `(-1)^z / 2^k` modulo `1`! -/
 def binaryTorusNum (z : Nat) : Nat → Int
   | 0 => 0
   | j + 1 => binaryTorusNum z j + ((-2 : Int) ^ j) * Int.ofNat (binom z j)
 
-/-- Theorem 7 (Lemma 9 Exact `q = 2` Modulo-`2^k` Congruence Witness for `k = 3`, `z = 0..7`):
-    Verifies constructively that for `k = 3` (`2^3 = 8`), `binaryTorusNum z 3 - parityChar z`
-    is an EXACT multiple of `8` for all `z ∈ {0, ..., 7}`, certifying
-    `Q(z) = (1/8) ∑_{j=0}^2 (-2)^j C(z, j) ≡ (-1)^z / 8 (mod 1)`! -/
-theorem lemma9_binary_k3_exact_mod8 :
-    ((binaryTorusNum 0 3 - parityChar 0) % 8 = 0) ∧
-    ((binaryTorusNum 1 3 - parityChar 1) % 8 = 0) ∧
-    ((binaryTorusNum 2 3 - parityChar 2) % 8 = 0) ∧
-    ((binaryTorusNum 3 3 - parityChar 3) % 8 = 0) ∧
-    ((binaryTorusNum 4 3 - parityChar 4) % 8 = 0) ∧
-    ((binaryTorusNum 5 3 - parityChar 5) % 8 = 0) ∧
-    ((binaryTorusNum 6 3 - parityChar 6) % 8 = 0) ∧
-    ((binaryTorusNum 7 3 - parityChar 7) % 8 = 0) := by
-  decide
+/-- Theorem 7 (Lemma 9 Universal `q = 2, k = 3` Modulo-`8` Congruence for ALL `z : Nat`):
+    Proves universally over EVERY `z : Nat` that `binaryTorusNum z 3 - parityChar z`
+    is an exact multiple of `8`, certifying
+    `Q(z) = (1/8) ∑_{j=0}^2 (-2)^j C(z, j) ≡ (-1)^z / 8 (mod 1)` for all `z ∈ ℕ`. -/
+theorem lemma9_binary_k3_exact_mod8 (z : Nat) :
+    (binaryTorusNum z 3 - parityChar z) % 8 = 0 := by
+  have hnum : binaryTorusNum z 3 = 1 - 2 * Int.ofNat z + 2 * Int.ofNat (z * (z - 1)) := by
+    simp only [binaryTorusNum, binom, binom_one]
+    have h2b := two_mul_binom_two z
+    have h4 : (4 : Int) * Int.ofNat (binom z 2) = 2 * Int.ofNat (2 * binom z 2) := by
+      have : Int.ofNat (2 * binom z 2) = 2 * Int.ofNat (binom z 2) := Int.natCast_mul 2 (binom z 2)
+      omega
+    rw [← h2b]
+    change (0 + 1 * (1 : Int) + (-2 : Int) * Int.ofNat z + (4 : Int) * Int.ofNat (binom z 2)) =
+      1 - 2 * Int.ofNat z + 2 * Int.ofNat (2 * binom z 2)
+    omega
+  rw [hnum]
+  unfold parityChar
+  cases hz : z % 2 with
+  | zero =>
+      cases hm : z / 2 with
+      | zero =>
+          have : z = 0 := by omega
+          rw [this]
+          decide
+      | succ r =>
+          have hzm : z = 2 * (r + 1) := by omega
+          have hz1 : z - 1 = 2 * r + 1 := by omega
+          have hprod : Int.ofNat (z * (z - 1)) = Int.ofNat z * Int.ofNat (z - 1) := Int.natCast_mul z (z - 1)
+          change (1 - 2 * Int.ofNat z + 2 * Int.ofNat (z * (z - 1)) - 1) % 8 = 0
+          rw [hprod, hz1, hzm]
+          have hmul : 1 - 2 * Int.ofNat (2 * (r + 1)) +
+              2 * (Int.ofNat (2 * (r + 1)) * Int.ofNat (2 * r + 1)) - 1 =
+              8 * (Int.ofNat (r + 1) * Int.ofNat r) := by
+            have ha : Int.ofNat (2 * (r + 1)) = 2 * Int.ofNat (r + 1) := Int.natCast_mul 2 (r + 1)
+            have hb : Int.ofNat (2 * r + 1) = 2 * Int.ofNat r + 1 := by
+              change ((2 * r + 1 : Nat) : Int) = 2 * (r : Int) + 1
+              rw [Int.natCast_add, Int.natCast_mul]; rfl
+            rw [ha, hb]
+            have e1 : 2 * Int.ofNat (r + 1) * (2 * Int.ofNat r + 1) =
+                2 * Int.ofNat (r + 1) * (2 * Int.ofNat r) + 2 * Int.ofNat (r + 1) * 1 :=
+              Int.mul_add _ _ _
+            have e2 : 2 * Int.ofNat (r + 1) * (2 * Int.ofNat r) =
+                4 * (Int.ofNat (r + 1) * Int.ofNat r) := by
+              have h22 : (4 : Int) = 2 * 2 := rfl
+              rw [h22]; ac_rfl
+            rw [e1, e2, Int.mul_one]
+            omega
+          rw [hmul]
+          exact Int.mul_emod_right 8 (Int.ofNat (r + 1) * Int.ofNat r)
+  | succ k =>
+      let m := z / 2
+      have hzm : z = 2 * m + 1 := by omega
+      have hz1 : z - 1 = 2 * m := by omega
+      have hprod : Int.ofNat (z * (z - 1)) = Int.ofNat z * Int.ofNat (z - 1) := Int.natCast_mul z (z - 1)
+      have hne : ((k + 1 == 0) = true) → False := by
+        intro h
+        have := beq_iff_eq.mp h
+        omega
+      have hite : (if (k + 1 == 0) = true then (1 : Int) else -1) = -1 := by
+        cases hc : (k + 1 == 0)
+        · rfl
+        · exact False.elim (hne hc)
+      rw [hite, hprod, hz1, hzm]
+      have hmul : 1 - 2 * Int.ofNat (2 * m + 1) +
+          2 * (Int.ofNat (2 * m + 1) * Int.ofNat (2 * m)) - (-1) =
+          8 * (Int.ofNat m * Int.ofNat m) := by
+        have ha : Int.ofNat (2 * m + 1) = 2 * Int.ofNat m + 1 := by
+          change ((2 * m + 1 : Nat) : Int) = 2 * (m : Int) + 1
+          rw [Int.natCast_add, Int.natCast_mul]; rfl
+        have hb : Int.ofNat (2 * m) = 2 * Int.ofNat m := Int.natCast_mul 2 m
+        rw [ha, hb]
+        have e1 : (2 * Int.ofNat m + 1) * (2 * Int.ofNat m) =
+            (2 * Int.ofNat m) * (2 * Int.ofNat m) + 1 * (2 * Int.ofNat m) :=
+          Int.add_mul _ _ _
+        have e2 : (2 * Int.ofNat m) * (2 * Int.ofNat m) = 4 * (Int.ofNat m * Int.ofNat m) := by
+          have h22 : (4 : Int) = 2 * 2 := rfl
+          rw [h22]; ac_rfl
+        rw [e1, e2, Int.one_mul]
+        omega
+      rw [hmul]
+      exact Int.mul_emod_right 8 (Int.ofNat m * Int.ofNat m)
 
 /-- Theorem 8 (Lemma 10 Nearest-Multiple Rounding Error `≤ 1 / (2 p^k) ≤ ε`):
     If `|α - c / p^k| ≤ 1 / (2 p^k)` (cleared by `2 * p^k * ed`: `e * ed ≤ ed`) and
@@ -133,25 +234,48 @@ theorem lemma10_rounding_error_half_pk (err_num pk en ed : Nat)
 def deltaMod (m z : Nat) : Nat :=
   if z % m == 0 then 1 else 0
 
-/-- Theorem 9 (Lemma 11 Exact CRT Factorization `δ_6(z) = δ_2(z) * δ_3(z)` for ALL `z : Nat`):
-    Constructively proves the Chinese Remainder Theorem zero-test identity for `m = 2 * 3 = 6`
-    universally over every `z : Nat`! -/
-theorem lemma11_crt_mod6_exact (z : Nat) :
-    deltaMod 6 z = deltaMod 2 z * deltaMod 3 z := by
+/-- Theorem 9 (Lemma 11 Universal Coprime CRT Factorization for ALL coprime `q1, q2` and `z : Nat`):
+    Constructively proves the Chinese Remainder Theorem zero-test identity
+    `δ_{q1 * q2}(z) = δ_{q1}(z) * δ_{q2}(z)` for EVERY `q1, q2, z : Nat` with `Nat.gcd q1 q2 = 1`. -/
+theorem lemma11_crt_coprime_exact (q1 q2 z : Nat) (hcop : Nat.gcd q1 q2 = 1) :
+    deltaMod (q1 * q2) z = deltaMod q1 z * deltaMod q2 z := by
   unfold deltaMod
-  have h2 : z % 2 = (z % 6) % 2 := by omega
-  have h3 : z % 3 = (z % 6) % 3 := by omega
-  have hlt : z % 6 < 6 := Nat.mod_lt z (by decide)
-  rw [h2, h3]
-  generalize z % 6 = r at hlt ⊢
-  match r with
-  | 0 => rfl
-  | 1 => rfl
-  | 2 => rfl
-  | 3 => rfl
-  | 4 => rfl
-  | 5 => rfl
-  | n + 6 => omega
+  have hiff : (z % (q1 * q2) = 0) ↔ (z % q1 = 0 ∧ z % q2 = 0) := by
+    rw [← Nat.dvd_iff_mod_eq_zero, ← Nat.dvd_iff_mod_eq_zero, ← Nat.dvd_iff_mod_eq_zero]
+    constructor
+    · intro h
+      exact ⟨Nat.dvd_trans (Nat.dvd_mul_right q1 q2) h,
+             Nat.dvd_trans (Nat.dvd_mul_left q2 q1) h⟩
+    · rintro ⟨h1, h2⟩
+      exact Nat.Coprime.mul_dvd_of_dvd_of_dvd hcop h1 h2
+  cases h1 : (z % q1 == 0) <;> cases h2 : (z % q2 == 0)
+  · have hm : (z % (q1 * q2) == 0) = false := by
+      cases h0 : (z % (q1 * q2) == 0)
+      · rfl
+      · have hq := (hiff.mp (beq_iff_eq.mp h0)).1
+        have : (z % q1 == 0) = true := beq_iff_eq.mpr hq
+        rw [h1] at this
+        contradiction
+    rw [hm]; rfl
+  · have hm : (z % (q1 * q2) == 0) = false := by
+      cases h0 : (z % (q1 * q2) == 0)
+      · rfl
+      · have hq := (hiff.mp (beq_iff_eq.mp h0)).1
+        have : (z % q1 == 0) = true := beq_iff_eq.mpr hq
+        rw [h1] at this
+        contradiction
+    rw [hm]; rfl
+  · have hm : (z % (q1 * q2) == 0) = false := by
+      cases h0 : (z % (q1 * q2) == 0)
+      · rfl
+      · have hq := (hiff.mp (beq_iff_eq.mp h0)).2
+        have : (z % q2 == 0) = true := beq_iff_eq.mpr hq
+        rw [h2] at this
+        contradiction
+    rw [hm]; rfl
+  · have hm : (z % (q1 * q2) == 0) = true := by
+      exact beq_iff_eq.mpr (hiff.mpr ⟨beq_iff_eq.mp h1, beq_iff_eq.mp h2⟩)
+    rw [hm]; rfl
 
 /-- Theorem 10 (Lemma 11 Boolean Factor Preserves Torus Error):
     Multiplying any error `e` by a Boolean indicator `b ∈ {0, 1}` never increases `iabs (b * e)`. -/

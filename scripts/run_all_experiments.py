@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from src.torus_certifier import SCHEMA_VERSION, verify_torus_certificate_exact
+from src.torus_certifier import SCHEMA_VERSION, lemma9_exact_period, verify_torus_certificate_exact
 from src.torus_exact import (
     PI_UPPER_Q,
     compile_parity_torus_poly_q,
@@ -49,6 +49,7 @@ def _poly_to_json(poly: Dict[Tuple[int, ...], Fraction]) -> List[Dict[str, Any]]
 def _make_mode1(cert_id: str, p: int, e: int, k: int) -> Dict[str, Any]:
     q = p ** e
     coeffs = lemma9_finite_diff_coeffs_exact(p, e, k)
+    period = lemma9_exact_period(p, e, k, len(coeffs) - 1)
     return {
         "schema": SCHEMA_VERSION,
         "mode": "prime_power_finite_diff_lemma9_cert",
@@ -60,7 +61,7 @@ def _make_mode1(cert_id: str, p: int, e: int, k: int) -> Dict[str, Any]:
         "claimed_coeffs_mod_pk": coeffs,
         "claimed_exact_degree": len(coeffs) - 1,
         "claimed_simple_degree_ub": (q - 1) * k,
-        "claimed_verified_z_range": [-2 * q, 4 * q],
+        "claimed_verified_z_range": [0, period - 1],
     }
 
 

@@ -8,7 +8,7 @@ import TorusACC0
 #print axioms TorusACC0.beigel_tarui_degree_comparison
 #print axioms TorusACC0.lemma9_binary_k3_exact_mod8
 #print axioms TorusACC0.lemma10_rounding_error_half_pk
-#print axioms TorusACC0.lemma11_crt_mod6_exact
+#print axioms TorusACC0.lemma11_crt_coprime_exact
 #print axioms TorusACC0.lemma11_boolean_factor_preserves_error
 #print axioms TorusACC0.lemma11_composite_degree_recurrence
 #print axioms TorusACC0.fourier_l1_norm_and_n_exact

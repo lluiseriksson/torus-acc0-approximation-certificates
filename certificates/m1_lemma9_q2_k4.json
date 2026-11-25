@@ -16,7 +16,7 @@
   "claimed_exact_degree": 4,
   "claimed_simple_degree_ub": 4,
   "claimed_verified_z_range": [
-    -4,
-    8
+    0,
+    127
   ]
 }

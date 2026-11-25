@@ -9,3 +9,4 @@ package «TorusACC0» where
 @[default_target]
 lean_lib «TorusACC0» where
   roots := #[`TorusACC0]
+  moreLeanArgs := #["-j", "1"]
